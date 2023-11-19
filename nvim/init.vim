@@ -27,6 +27,9 @@ set autoindent
 set backupdir=~/.cache/nvim/backup
 
 " Hotkeys
+nnoremap zl :source Session.vim<CR>
+nnoremap zL :mksession!<CR>
+nnoremap zg :RustTest<CR>
 
 " Анбинд стрелок
 noremap <Up> <Nop>
@@ -39,9 +42,10 @@ inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 
 " Билды
-autocmd FileType rust nnoremap <F5> :Cargo run<CR>
-autocmd FileType rust nnoremap <F6> :Cargo check<CR>
-autocmd FileType rust nnoremap <F7> :Cargo test<CR>
+augroup rustBuilds
+    au!
+    au FileType rust nnoremap <F5> :Cargo run<CR>; nnoremap <F6> :Cargo check<CR>; nnoremap <F7> :Cargo test<CR>
+augroup END
 
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
@@ -55,8 +59,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'luochen1990/rainbow'
 Plug 'jiangmiao/auto-pairs'
+
+Plug 'junegunn/fzf.vim'
+
+Plug 'iamcco/markdown-preview.nvim'
 
 " Languages
 Plug 'rust-lang/rust.vim'
@@ -80,4 +89,7 @@ let g:Hexokinase_highlighters = ['foregroundfull']
 
 " Rainbow
 let g:rainbow_active = 1
+
+" Commands
+command! Vimrc e ~/.config/nvim/init.vim
 
