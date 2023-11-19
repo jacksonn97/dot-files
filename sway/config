@@ -77,7 +77,7 @@ set $menu fuzzel -i
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # output * bg ~/.wallpapers/$(ls ~/.wallpapers/ | shuf -n 1) fill
-output * bg ~/.wallpapers/autumn_forest.png fill
+output * bg ~/.wallpapers/girl_near_the_door.jpg fill
 
 output HDMI-A-1 mode 1920x1080@74.973000Hz
 
@@ -258,14 +258,13 @@ bindsym --to-code $mod+t exec telegram-desktop
 bar {
     swaybar_command waybar
 }
+
 exec {
     gsettings set org.gnome.desktop.interface gtk-theme "Qogir"
     gsettings set org.gnome.desktop.interface icon-theme "Qogir"
     mako --default-timeout 8000
     python3 ~/Documents/searx/searx/webapp.py
     python3 ~/.usersrcipts/noisy/noisy.py --config ~/.autorun/noisy/config.json
-    
-    # Exports
-    export EDITOR=nvim
 }
+
 include /etc/sway/config.d/*
