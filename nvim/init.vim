@@ -9,9 +9,13 @@ set noruler
 set t_Co=256
 set mouse=
 set termguicolors
+
+set incsearch
 set ignorecase
+
 set smartcase
 set completeopt-=preview
+set foldmethod=manual
 
 set wildmenu
 set wildmode=full
@@ -28,8 +32,15 @@ set backupdir=~/.cache/nvim/backup
 
 " Hotkeys
 nnoremap zl :source Session.vim<CR>
-nnoremap zL :mksession!<CR>
+nnoremap zL :mksession<CR>
 nnoremap zg :RustTest<CR>
+
+nnoremap <leader>g :Git<CR>
+nnoremap <leader>l :Lines<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>w :Windows<CR>
+nnoremap <leader>tn :tabnew<CR>
+nnoremap <leader>tc :tabclose<CR>
 
 " Анбинд стрелок
 noremap <Up> <Nop>
@@ -44,7 +55,15 @@ inoremap <Right> <Nop>
 " Билды
 augroup rustBuilds
     au!
-    au FileType rust nnoremap <F5> :Cargo run<CR>; nnoremap <F6> :Cargo check<CR>; nnoremap <F7> :Cargo test<CR>
+    au FileType rust nnoremap <F5> :Cargo run<CR>
+    au FileType rust nnoremap <F6> :Cargo check<CR>
+    au FileType rust nnoremap <F7> :Cargo test<CR>
+augroup END
+
+" Automatically reload .vimrc file on save
+augroup init.vim
+  au!
+  au BufWritePost init.vim so ~/.config/nvim/init.vim
 augroup END
 
 " Plugins
@@ -59,12 +78,13 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
 Plug 'luochen1990/rainbow'
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf.vim'
 
+" Some shit
 Plug 'iamcco/markdown-preview.nvim'
 
 " Languages
@@ -74,14 +94,9 @@ call plug#end()
 
 
 " Colorscheme
+let g:gruvbox_transparent_bg = 1
+let g:gruvbox_contrast_dark = "hard"
 colorscheme gruvbox
-" hi Normal guibg=None ctermbg=None
-let g:material_theme_style = 'ocean'
-let g:material_terminal_italics = 1
-
-" let g:oceanic_next_terminal_bold = 1
-" let g:oceanic_next_terminal_italic = 1
-" colorscheme OceanicNext
 
 " Hexokinase
 let g:Hexokinase_highlighters = ['foregroundfull']
@@ -92,4 +107,5 @@ let g:rainbow_active = 1
 
 " Commands
 command! Vimrc e ~/.config/nvim/init.vim
-
+command! Swaycfg e ~/.config/sway/config
+command! Zshrc e ~/.zshrc
