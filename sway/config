@@ -6,10 +6,10 @@
 
 # Sway theme
 
-#smart_borders on
-default_border pixel 1
-#smart_gaps on
-gaps inner 6
+# smart_borders on
+default_border pixel 0
+# smart_gaps on
+gaps inner 4
 
 # Colors (gruvbox theme)
 set {
