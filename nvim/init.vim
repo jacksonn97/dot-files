@@ -1,6 +1,5 @@
-" База
 
-syntax on 
+syntax on
 set number
 set relativenumber
 set hls
@@ -42,6 +41,8 @@ nnoremap <leader>w :Windows<CR>
 nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>tc :tabclose<CR>
 
+nnoremap <S-F8> :HexokinaseToggle<CR>
+
 " Анбинд стрелок
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -69,7 +70,7 @@ augroup END
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
 
-" Themes 
+" Themes
 Plug 'morhetz/gruvbox'
 
 " Common
@@ -109,3 +110,5 @@ let g:rainbow_active = 1
 command! Vimrc e ~/.config/nvim/init.vim
 command! Swaycfg e ~/.config/sway/config
 command! Zshrc e ~/.zshrc
+command! ToTabs :%s/	/\t/g
+command! ToSpaces :%s/\t/	/g
