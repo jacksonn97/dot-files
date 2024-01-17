@@ -2,8 +2,7 @@
 
 @keyframes blink-critical {
 	to {
-		/*color: @white;*/
-		background-color: @critical;
+		color: @critical;
 	}
 }
 
@@ -28,6 +27,7 @@
 @define-color braqua	#8ec07c;
 @define-color white	#ebdbb2;
 @define-color bg2	#504945;
+@define-color moon #0aabf5;
 
 
 @define-color warning 	@bryellow;
@@ -69,7 +69,6 @@
 
 /* Each module */
 #battery,
-#clock,
 #cpu,
 #language,
 #memory,
@@ -87,8 +86,36 @@
 	padding-right: 8pt;
 }
 
+#clock {
+	padding-left: 5pt;
+	padding-right: 5pt;
+}
+
+#custom-power,
+#custom-sleep,
+#custom-reboot,
+#custom-logout {
+	padding-left: 2pt;
+	padding-right: 2pt;
+}
+
+#custom-power {
+	color: @brred;
+}
+#custom-reboot {
+	color: @bryellow;
+}
+
+#custom-sleep {
+	font-weight: bold;
+	color: @moon;
+}
+
+#custom-logout {
+	color: @aqua;
+}
+
 /* Each critical module */
-#mode,
 #memory.critical,
 #cpu.critical,
 #temperature.critical,
@@ -114,7 +141,7 @@
 /* Current sway mode (resize etc) */
 #mode {
 	color: @white;
-	background: @mode;
+	background: @aqua;
 }
 
 /* Workspaces stuff */
@@ -204,6 +231,13 @@
 	color: @black;
 }
 
+#custom-arrow0 {
+	font-size: 11pt;
+	color: @date;
+	background: @time;
+	/* z-index: 1; */
+}
+
 #custom-arrow1 {
 	font-size: 11pt;
 	color: @time;
@@ -219,18 +253,6 @@
 #custom-arrow3 {
 	font-size: 11pt;
 	color: @layout;
-	background: @cpu;
-}
-
-#custom-arrow4 {
-	font-size: 11pt;
-	color: @battery;
-	background: @temp;
-}
-
-#custom-arrow5 {
-	font-size: 11pt;
-	color: @temp;
 	background: @cpu;
 }
 
