@@ -37,17 +37,16 @@ nnoremap zg :RustTest<CR>
 nnoremap <leader>g :Git<CR>
 nnoremap <leader>l :Lines<CR>
 nnoremap <leader>f :Files<CR>
-nnoremap <leader>w :Windows<CR>
 nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>tc :tabclose<CR>
 
-nnoremap <S-F8> :HexokinaseToggle<CR>
+nnoremap <A-2> :HexokinaseToggle<CR>
 
 " Анбинд стрелок
-noremap <Up> <Nop>
-noremap <Down> <Nop>
-noremap <Left> <Nop>
-noremap <Right> <Nop>
+noremap  <Up> <Nop>
+noremap  <Down> <Nop>
+noremap  <Left> <Nop>
+noremap  <Right> <Nop>
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
@@ -56,9 +55,9 @@ inoremap <Right> <Nop>
 " Билды
 augroup rustBuilds
     au!
-    au FileType rust nnoremap <F5> :Cargo run<CR>
-    au FileType rust nnoremap <F6> :Cargo check<CR>
-    au FileType rust nnoremap <F7> :Cargo test<CR>
+    au FileType rust nnoremap <A-9> :Cargo run<CR>
+    au FileType rust nnoremap <A-0> :Cargo check<CR>
+    au FileType rust nnoremap <A--> :Cargo test<CR>
 augroup END
 
 " Automatically reload .vimrc file on save
@@ -90,6 +89,7 @@ Plug 'iamcco/markdown-preview.nvim'
 
 " Languages
 Plug 'rust-lang/rust.vim'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
@@ -110,5 +110,5 @@ let g:rainbow_active = 1
 command! Vimrc e ~/.config/nvim/init.vim
 command! Swaycfg e ~/.config/sway/config
 command! Zshrc e ~/.zshrc
-command! ToTabs :%s/	/\t/g
-command! ToSpaces :%s/\t/	/g
+command! ToTabs :%s/    /\t/g
+command! ToSpaces :%s/\t/    /g
