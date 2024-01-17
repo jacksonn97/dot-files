@@ -62,8 +62,13 @@ augroup END
 
 " Automatically reload .vimrc file on save
 augroup init.vim
-  au!
-  au BufWritePost init.vim so ~/.config/nvim/init.vim
+    au!
+    au BufWritePost init.vim so ~/.config/nvim/init.vim
+augroup END
+
+augroup removeTrailing
+    au!
+    autocmd BufWritePre * :%s/\s\+$//e
 augroup END
 
 " Plugins
