@@ -63,6 +63,13 @@ input * {
 	pointer_accel 0
 }
 
+### Settings for keyboard-mouse emulation
+input 12815:20565:Telink_CIDOO_V65_Mouse {
+	accel_profile adaptive
+	pointer_accel 1
+	dwt enable
+}
+
 font pango: dejavu sans mono 7
 # Your preferred terminal emulator
 set $term kitty
