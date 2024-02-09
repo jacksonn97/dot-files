@@ -102,6 +102,13 @@ output HDMI-A-1 mode 1920x1080@74.973000Hz
 	bindsym --to-code $mod+d exec $menu
 	bindsym --to-code Print exec grim ~/Images/screenshots/screenshot-"$(date +%T)"-"$(date +%d)".jpg
 
+	# vim-anywhere for sway
+	# https://gist.github.com/jacksonn97/2acd8c9dbfde204df9ba477122f371b4
+	bindsym --to-code $mod+i exec ~/.userscripts/vim-anywhere
+
+	# Toggle this script https://gist.github.com/jacksonn97/1e759b8d197dac21c6a2624e9db2847e
+	bindsym --to-code $mod+Shift+e exec COLUMNS=20 LINES=15 kitty -e ~/.userscripts/powermanager
+
 	# Resize them with right mouse button + $mod.
 	# Despite the name, also works for non-floating windows.
 	# Change normal to inverse to use left mouse button for resizing and right
@@ -110,24 +117,6 @@ output HDMI-A-1 mode 1920x1080@74.973000Hz
 
 	# Reload the configuration file
 	bindsym --to-code $mod+Shift+c reload
-
-	# Exit sway (logs you out of your Wayland session)
-	bindsym --to-code $mod+Shift+e exec swaynag -t warning \
-	--background 282828\
-	--border-bottom a89984\
-	--text dbdbb2\
-	--button-text dbdbb2\
-	--font "Deja Vu Ssns Mono 9"\
-	--border 1d2021\
-	--button-background 3c3836\
-	--button-border-size 1\
-	--edge top\
-	-m \
-		'You pressed the exit shortcut. What do you want?' \
-		-b 'Logout' 'swaymsg exit' \
-		-b 'Sleep' 'swaylock -elf -c 000000 && systemctl suspend' \
-		-b 'Reboot' 'systemctl reboot' \
-		-b 'Poweroff' 'systemctl poweroff'
 
 # Lock sway
 bindsym --to-code $mod+Alt+l exec swaylock -elf -c 000000
@@ -145,6 +134,10 @@ bindsym --to-code $mod+Alt+l exec swaylock -elf -c 000000
 	for_window [app_id="keepassxc"] floating enable
 
 	for_window [title="LibreWolf - Choose User Profile"] floating enable
+
+	for_window [title="powermanager"] floating enable
+	for_window [title="powermanager"] border pixel 2
+
 
 # Window default place
 
