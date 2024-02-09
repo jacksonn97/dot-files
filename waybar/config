@@ -24,9 +24,9 @@
 		"custom/arrow2",
 		"clock#date",
 		"custom/arrow1",
-		"clock#time",
-		"custom/arrow0",
-		"group/group-power"
+		"clock#time"
+		// "custom/arrow0",
+		// "group/group-power"
 	],
 
 	// Modules
