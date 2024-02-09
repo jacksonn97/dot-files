@@ -11,8 +11,8 @@ set termguicolors
 
 set incsearch
 set ignorecase
-
 set smartcase
+
 set completeopt-=preview
 set foldmethod=manual
 
@@ -31,14 +31,23 @@ set backupdir=~/.cache/nvim/backup
 
 " Hotkeys
 nnoremap zl :source Session.vim<CR>
-nnoremap zL :mksession<CR>
+" nnoremap zl :source ~/.config/nvim/arduino.vim<CR>
+nnoremap zL :mksession
 nnoremap zg :RustTest<CR>
 
+" Default leader '\'
 nnoremap <leader>g :Git<CR>
 nnoremap <leader>l :Lines<CR>
 nnoremap <leader>f :Files<CR>
+nnoremap <leader>m :Marks<CR>
+
+" Tabs
 nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>tc :tabclose<CR>
+
+" Spellcheck
+nnoremap <leader>se :setlocal spell<CR>
+nnoremap <leader>sd :setlocal nospell<CR>
 
 nnoremap <A-2> :HexokinaseToggle<CR>
 
@@ -58,9 +67,10 @@ augroup rustBuilds
     au FileType rust nnoremap <A-9> :Cargo run<CR>
     au FileType rust nnoremap <A-0> :Cargo check<CR>
     au FileType rust nnoremap <A--> :Cargo test<CR>
+    au FileType rust nnoremap <A-e> :Cargo doc<CR>
 augroup END
 
-" Automatically reload .vimrc file on save
+" Automatically reload init.vim file on save
 augroup init.vim
     au!
     au BufWritePost init.vim so ~/.config/nvim/init.vim
@@ -68,7 +78,7 @@ augroup END
 
 augroup removeTrailing
     au!
-    autocmd BufWritePre * :%s/\s\+$//e
+    au BufWritePre * :%s/\s\+$//e
 augroup END
 
 " Plugins
@@ -81,12 +91,13 @@ Plug 'morhetz/gruvbox'
 Plug 'RRethy/vim-hexokinase'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-commentary'
 Plug 'luochen1990/rainbow'
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+
 Plug 'junegunn/fzf.vim'
 
 " Some shit
@@ -115,5 +126,6 @@ let g:rainbow_active = 1
 command! Vimrc e ~/.config/nvim/init.vim
 command! Swaycfg e ~/.config/sway/config
 command! Zshrc e ~/.zshrc
-command! ToTabs :%s/    /\t/g
-command! ToSpaces :%s/\t/    /g
+command! ToTabs %s/    /\t/g
+command! ToSpaces %s/\t/    /g
+command! RmDbg '<,'>s/\vdbg!\((.*)\)/\1/g
