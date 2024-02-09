@@ -38,7 +38,7 @@ set {
 }
 
 # Border colors (see `man 5 sway`)
-# class				    border		titlebar	bg		text	indicator
+# class					border		titlebar	bg		text	indicator
 client.focused			$focused	$focused	$black	$focused
 client.focused_inactive $inactive	$inactive	$white	$focused
 client.unfocused		$unfocused	$unfocused	$white	$focused
@@ -84,7 +84,7 @@ set $menu fuzzel -i
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # output * bg ~/.wallpapers/$(ls ~/.wallpapers/ | shuf -n 1) fill
-output * bg ~/.wallpapers/sunset_and_river.jpg fill
+output * bg ~/.wallpapers/Alfombra_de_algas_amarillas.jpg fill
 
 output HDMI-A-1 mode 1920x1080@74.973000Hz
 
@@ -142,11 +142,11 @@ bindsym --to-code $mod+Alt+l exec swaylock -elf -c 000000
 # Window default place
 
 	assign [app_id="LibreWolf"] workspace 2
-	assign [app_id="org.telegram.desktop"] workspace 4
 	assign [class="Google-chrome"] workspace 4
+	assign [app_id="com.obsproject.Studio"] workspace 10
 
 
-bindsym $mod+F6 output "HDMI-A-1" toggle ; output "eDP-1" toggleN
+bindsym $mod+Alt+Escape output "HDMI-A-1" toggle ; output "eDP-1" toggleN
 
 #
 # Moving around:
@@ -175,7 +175,7 @@ bindsym $mod+F6 output "HDMI-A-1" toggle ; output "eDP-1" toggleN
 	bindsym $mod+7 workspace number 7
 	bindsym $mod+8 workspace number 8
 	bindsym $mod+9 workspace number 9
-	bindsym $mod+0 workspace number 10
+	bindsym $mod+0 workspace 10
 	# Move focused container to workspace
 	bindsym $mod+Shift+1 move container to workspace number 1
 	bindsym $mod+Shift+2 move container to workspace number 2
@@ -193,8 +193,8 @@ bindsym $mod+F6 output "HDMI-A-1" toggle ; output "eDP-1" toggleN
 # Media keys
 #
 
-	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-	bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
+	bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
 	bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 	bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 	bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
@@ -256,8 +256,6 @@ mode "resize" {
 	bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-bindsym $mod+i nop kitti3
-
 
 #
 # Custom application
