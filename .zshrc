@@ -62,6 +62,14 @@ case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
 
+if [ $UID = 0 ]; then
+    path_color=9
+    arrow_color=9
+else
+    path_color=14
+    arrow_color=15
+fi
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
@@ -76,7 +84,7 @@ precmd() {
     vcs_info
 }
 
-PROMPT='%F{14}%~%f %F{11}${vcs_info_msg_0_}%F{f}-> '
+PROMPT='%F{${path_color}}%~%f %F{11}${vcs_info_msg_0_}%F{${arrow_color}}->%F{f} '
 
 # enable color support of ls, less and man, and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -90,7 +98,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
     alias diff='diff --color=auto'
     alias ip='ip --color=auto'
-    alias cat='bat'
 
     export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
     export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
@@ -105,9 +112,12 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
+alias cat='bat'
+alias catt='/bin/cat'
 alias ll='ls -lAh'
 alias l='ls -Al'
 alias la='ls -A'
+alias cal='cal -m'
 alias :q=exit
 
 # enable auto-suggestions based on the history
