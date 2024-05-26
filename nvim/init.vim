@@ -76,7 +76,7 @@ augroup init.vim
     au BufWritePost init.vim so ~/.config/nvim/init.vim
 augroup END
 
-augroup removeTrailing
+augroup removeTrailingSpaces
     au!
     au BufWritePre * :%s/\s\+$//e
 augroup END
@@ -86,6 +86,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Themes
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/everforest'
 
 " Common
 Plug 'RRethy/vim-hexokinase'
@@ -111,9 +112,15 @@ call plug#end()
 
 
 " Colorscheme
-let g:gruvbox_transparent_bg = 1
-let g:gruvbox_contrast_dark = "hard"
-colorscheme gruvbox
+" Gruvbox
+" let g:gruvbox_transparent_bg = 1
+" let g:gruvbox_contrast_dark = "soft"
+" colorscheme gruvbox
+
+" Everforest
+let g:everforest_background = 'medium'
+let g:everforest_better_performance = 1
+colo everforest
 
 " Hexokinase
 let g:Hexokinase_highlighters = ['foregroundfull']

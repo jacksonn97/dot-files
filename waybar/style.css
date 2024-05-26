@@ -9,42 +9,36 @@
 
 /* Styles */
 
-/* Colors (gruvbox) */
-@define-color black	#1d2021;
-@define-color red	#cc241d;
-@define-color green	#98971a;
-@define-color yellow	#d79921;
-@define-color blue	#458588;
-@define-color purple	#b16286;
-@define-color aqua	#689d6a;
-@define-color gray	#a89984;
-@define-color brgray	#928374;
-@define-color brred	#fb4934;
-@define-color brgreen	#b8bb26;
-@define-color bryellow	#fabd2f;
-@define-color brblue	#83a598;
-@define-color brpurple	#d3869b;
-@define-color braqua	#8ec07c;
-@define-color white	#ebdbb2;
-@define-color bg2	#504945;
-@define-color moon #0aabf5;
+/* Colors (everforest) */
+@define-color bg		#2d353b;
+@define-color black		#343f44;
+@define-color red		#e67e80;
+@define-color green		#a7c080;
+@define-color yellow	#dbbc7f;
+@define-color blue		#7fbbb3;
+@define-color purple	#d699b6;
+@define-color aqua		#83c092;
+@define-color gray		#859289;
+@define-color white		#d3c6aa;
+@define-color bg2		#3d484d;
+@define-color moon		#0aabf5;
 
 
-@define-color warning 	@bryellow;
+@define-color warning 	@yellow;
 @define-color critical	@red;
 @define-color mode	@black;
 @define-color unfocused	@bg2;
-@define-color focused	@braqua;
+@define-color focused	@blue;
 @define-color inactive	@purple;
-@define-color sound	@brpurple;
-@define-color network	@purple;
-@define-color memory	@braqua;
+@define-color sound	@yellow;
+@define-color network	@blue;
+@define-color memory	@aqua;
 @define-color cpu	@green;
-@define-color temp	@brgreen;
-@define-color layout	@bryellow;
+@define-color temp	@green;
+@define-color layout	@white;
 @define-color battery	@aqua;
-@define-color date	@black;
-@define-color time	@white;
+@define-color date	@bg;
+@define-color time	@yellow;
 
 /* Reset all styles */
 * {
@@ -60,7 +54,7 @@
 
 /* The whole bar */
 #waybar {
-	background: @black; /* #282828e0 */
+	background: @bg;
 	color: @white;
 	font-family: Free Sans, "Font Awesome 6 Free";
 	font-size: 10pt;
@@ -100,10 +94,10 @@
 }
 
 #custom-power {
-	color: @brred;
+	color: @red;
 }
 #custom-reboot {
-	color: @bryellow;
+	color: @yellow;
 }
 
 #custom-sleep {
@@ -133,7 +127,7 @@
 #cpu.warning,
 #temperature.warning,
 #battery.warning.discharging {
-	color: @warning;
+	color: @critical;
 }
 
 /* And now modules themselves in their respective order */
@@ -189,7 +183,7 @@
 
 #network {
 	background: @network;
-	color: @white;
+	color: @black;
 }
 
 #memory {
@@ -199,7 +193,7 @@
 
 #cpu {
 	background: @cpu;
-	color: @white;
+	color: @black;
 }
 
 #temperature {
@@ -218,7 +212,7 @@
 }
 
 #tray {
-	background: @date;
+	background: @bg;
 }
 
 #clock.date {
