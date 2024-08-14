@@ -8,6 +8,7 @@ set noruler
 set t_Co=256
 set mouse=
 set termguicolors
+set nolazyredraw
 
 set incsearch
 set ignorecase
@@ -30,13 +31,13 @@ set autoindent
 set backupdir=~/.cache/nvim/backup
 
 " Hotkeys
-nnoremap zl :source Session.vim<CR>
-" nnoremap zl :source ~/.config/nvim/arduino.vim<CR>
-nnoremap zL :mksession
-nnoremap zg :RustTest<CR>
+
+" Session control
+nnoremap <leader>zl :source Session.vim<CR>
+nnoremap <leader>zL :mksession
 
 " Default leader '\'
-nnoremap <leader>g :Git<CR>
+nnoremap <leader>g :Git<CR>:on<CR>
 nnoremap <leader>l :Lines<CR>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>m :Marks<CR>
@@ -44,6 +45,9 @@ nnoremap <leader>m :Marks<CR>
 " Tabs
 nnoremap <leader>tn :tabnew<CR>
 nnoremap <leader>tc :tabclose<CR>
+nnoremap <leader>tm :tabmove
+nnoremap <leader>tf :tabmove0<CR>
+nnoremap <leader>tl :tabmove$<CR>
 
 " Spellcheck
 nnoremap <leader>se :setlocal spell<CR>
@@ -51,15 +55,11 @@ nnoremap <leader>sd :setlocal nospell<CR>
 
 nnoremap <A-2> :HexokinaseToggle<CR>
 
-" Анбинд стрелок
-noremap  <Up> <Nop>
-noremap  <Down> <Nop>
-noremap  <Left> <Nop>
-noremap  <Right> <Nop>
-inoremap <Up> <Nop>
-inoremap <Down> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
+" Unbind arrows
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
 " Билды
 augroup rustBuilds
@@ -68,6 +68,7 @@ augroup rustBuilds
     au FileType rust nnoremap <A-0> :Cargo check<CR>
     au FileType rust nnoremap <A--> :Cargo test<CR>
     au FileType rust nnoremap <A-e> :Cargo doc<CR>
+    au FileType rust nnoremap <leader>tt :RustTest<CR>
 augroup END
 
 " Automatically reload init.vim file on save
@@ -128,6 +129,9 @@ let g:Hexokinase_highlighters = ['foregroundfull']
 
 " Rainbow
 let g:rainbow_active = 1
+lua vim.lsp.inlay_hint.enable(false)
+lua vim.g.inlay_hints_visible = false
+
 
 " Commands
 command! Vimrc e ~/.config/nvim/init.vim

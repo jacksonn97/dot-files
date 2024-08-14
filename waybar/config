@@ -10,6 +10,7 @@
 	],
 
 	"modules-right": [
+		"custom/player",
 		"tray",
 		"custom/arrow9",
 		"pulseaudio",
@@ -153,8 +154,8 @@
 	},
 
 	"tray": {
-		"icon-size": 18
-		//"spacing": 10
+		"icon-size": 18,
+		"spacing": 3
 	},
 
 	"custom/arrow0": {
@@ -210,6 +211,15 @@
 	"custom/arrow10": {
 		"format": "",
 		"tooltip": false
+	},
+
+	"custom/player": {
+		"format": "{}",
+		"return-type": "json",
+		"on-click": "playerctl play-pause",
+		"on-scroll-up": "playerctl next",
+		"on-scroll-down": "playerctl previous",
+		"exec":  "python3 ~/.userscripts/mediaplayer.py",
 	}
 }
 
