@@ -114,20 +114,19 @@
 #cpu.critical,
 #temperature.critical,
 #battery.critical.discharging {
-	animation-timing-function: linear;
+	animation-timing-function: ease;
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
 	animation-name: blink-critical;
 	animation-duration: 1s;
+	color: @black;
 }
 
 /* Each warning */
 #network.disconnected,
-#memory.warning,
-#cpu.warning,
 #temperature.warning,
 #battery.warning.discharging {
-	color: @critical;
+	color: @warning;
 }
 
 /* And now modules themselves in their respective order */
