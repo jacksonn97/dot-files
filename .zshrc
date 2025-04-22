@@ -4,6 +4,7 @@
 export MOZ_ENABLE_WAYLAND=1
 export QT_QPA_PLATFORM="wayland;xcb"
 export EDITOR=nvim
+export $(dbus-launch)
 
 
 ZSH_THEME=af-magic
@@ -43,8 +44,8 @@ zstyle ':vcs_info:git:*' formats '%b '
 
 # History configurations
 HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=1500
+SAVEHIST=1500
 setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
 setopt hist_ignore_dups       # ignore duplicated commands history list
 setopt hist_ignore_space      # ignore commands that start with space
@@ -52,7 +53,7 @@ setopt hist_verify            # show command with history expansion to user befo
 #setopt share_history         # share command history data
 
 # force zsh to show the complete history
-# alias history="history 0"
+alias history="history 0"
 
 # make less more friendly for non-text input files, see lesspipe(1)
 #[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -112,13 +113,12 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias cat='bat'
-alias catt='/bin/cat'
 alias ll='ls -lAh'
-alias l='ls -Al'
+alias l='ls -l'
 alias la='ls -A'
 alias cal='cal -m'
 alias :q=exit
+alias sudo="doas"
 
 # enable auto-suggestions based on the history
 if [ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then

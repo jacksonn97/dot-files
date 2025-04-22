@@ -3,7 +3,6 @@ syntax on
 set number
 set relativenumber
 set hls
-set termencoding=utf-8
 set noruler
 set t_Co=256
 set mouse=
@@ -126,9 +125,9 @@ Plug 'sainnhe/everforest'
 " Common
 Plug 'RRethy/vim-hexokinase'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'vim-airline/vim-airline'
 Plug 'luochen1990/rainbow'
 Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -168,6 +167,7 @@ let g:rainbow_active = 1
 lua vim.lsp.inlay_hint.enable(false)
 lua vim.g.inlay_hints_visible = false
 
+let g:airline#extensions#whitespace#symbol = '!'
 
 " Commands
 command! Vimrc e ~/.config/nvim/init.vim
@@ -176,3 +176,4 @@ command! Zshrc e ~/.zshrc
 command! ToTabs %s/    /\t/g
 command! ToSpaces %s/\t/    /g
 command! RmDbg '<,'>s/\vdbg!\((.*)\)/\1/g
+command! W w

@@ -77,7 +77,7 @@ set $menu fuzzel -i
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # output * bg ~/.wallpapers/$(ls ~/.wallpapers/ | shuf -n 1) fill
-output * bg ~/.wallpapers/Alfombra_de_algas_amarillas.jpg fill
+output * bg ~/.wallpapers/autumn_forest.png fill
 
 output HDMI-A-1 mode 1920x1080@74.973000Hz
 
@@ -101,7 +101,7 @@ output HDMI-A-1 mode 1920x1080@74.973000Hz
 	bindsym --to-code $mod+i exec ~/.userscripts/vim-anywhere
 
 	# https://gist.github.com/jacksonn97/1e759b8d197dac21c6a2624e9db2847e
-	bindsym --to-code $mod+Shift+e exec kitty -e ~/.userscripts/powermanager
+	bindsym --to-code $mod+Shift+e exec kitty -o confirm_os_window_close=0 -e ~/.userscripts/powermanager
 
 	floating_modifier $mod normal
 
@@ -124,6 +124,7 @@ bindsym --to-code $mod+Alt+l exec swaylock -elf -c 000000
 	for_window [app_id="keepassxc"] floating enable
 
 	for_window [title="LibreWolf - Choose User Profile"] floating enable
+	for_window [window_role="floating_con"] floating enable
 
 	# powermananager
 	for_window [title="powermanager"] floating enable
@@ -135,9 +136,8 @@ bindsym --to-code $mod+Alt+l exec swaylock -elf -c 000000
 
 # Window default place
 
-	assign [app_id="LibreWolf"] workspace 2
-	assign [class="Google-chrome"] workspace 4
-	assign [app_id="com.obsproject.Studio"] workspace 10
+	assign [app_id="librewolf"] workspace 2
+	assign [app_id="google-chrome"] workspace 4
 
 
 bindsym $mod+Alt+Escape output "HDMI-A-1" toggle ; output "eDP-1" toggleN
@@ -169,7 +169,7 @@ bindsym $mod+Alt+Escape output "HDMI-A-1" toggle ; output "eDP-1" toggleN
 	bindsym $mod+7 workspace number 7
 	bindsym $mod+8 workspace number 8
 	bindsym $mod+9 workspace number 9
-	bindsym $mod+0 workspace 10
+	bindsym $mod+0 workspace number 10
 	# Move focused container to workspace
 	bindsym $mod+Shift+1 move container to workspace number 1
 	bindsym $mod+Shift+2 move container to workspace number 2
@@ -267,8 +267,8 @@ exec {
 	gsettings set org.gnome.desktop.interface gtk-theme "Qogir"
 	gsettings set org.gnome.desktop.interface icon-theme "Qogir"
 	mako --default-timeout 8000
-	python3 ~/Documents/searx/searx/webapp.py
 	python3 ~/.userscripts/noisy/noisy.py --config ~/.userscripts/noisy/config.json
 }
 
+	# python3 ~/Documents/searx/searx/webapp.py
 include /etc/sway/config.d/*
