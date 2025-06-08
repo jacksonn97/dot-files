@@ -29,6 +29,12 @@ set autoindent
 
 set backupdir=~/.cache/nvim/backup
 
+" Работа с кириллицей
+set spelllang=ru_ru,en_us
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
+
 " Hotkeys
 
 " Session control
