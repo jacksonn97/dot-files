@@ -56,9 +56,10 @@
 #waybar {
 	background: @bg;
 	color: @white;
-	font-family: JetBrains Mono, "Font Awesome 6 Free";
-	font-size: 8pt;
-	font-weight: bold;
+	font-family: Iosevka Slab Extended, "Font Awesome 6 Free";
+	font-size: 10pt;
+	font-weight: 600;
+	font-style: oblique;
 }
 
 /* Each module */
