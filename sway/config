@@ -254,7 +254,7 @@ bindsym $mod+r mode "resize"
 #
 # Custom application
 #
-bindsym --to-code $mod+t exec telegram-desktop
+bindsym --to-code $mod+t exec Telegram
 
 #
 # Status Bar:
