@@ -1,4 +1,3 @@
-// filetype jsonc
 {
 	"layer": "top",
 	"position": "top",
@@ -108,6 +107,7 @@
 
 	"network": {
 		"interval": 2,
+		"family": "ipv4",
 		"format-wifi": " {essid} ({signalStrength}%)",
 		"format-ethernet": " {ifname}",
 		"format-disconnected": "No connection",
@@ -215,9 +215,9 @@
 		"format": "{}",
 		"return-type": "json",
 		"on-click": "playerctl play-pause",
-		"on-scroll-up": "playerctl next",
-		"on-scroll-down": "playerctl previous",
-		"exec":  "python3 ~/.userscripts/mediaplayer.py",
+		"on-scroll-up": "playerctl previous",
+		"on-scroll-down": "playerctl next",
+		"exec":  "python3 ~/.userscripts/mediaplayer.py"
 	}
 }
 
