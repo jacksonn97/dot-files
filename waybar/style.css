@@ -56,10 +56,30 @@
 #waybar {
 	background: @bg;
 	color: @white;
-	font-family: Iosevka Slab Extended, "Font Awesome 6 Free";
+	font-family: "Font Awesome 6 Free";
 	font-size: 10pt;
 	font-weight: 600;
 	font-style: oblique;
+}
+/* Fix arrows gaps because of Iosevka :D*/
+#battery,
+#cpu,
+#language,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#tray,
+#backlight,
+#idle_inhibitor,
+#disk,
+#clock,
+#user,
+#mode,
+#workspaces,
+#window {
+	font-family: Iosevka Slab Extended, "Font Awesome 6 Free";
 }
 
 /* Each module */
@@ -75,8 +95,7 @@
 #backlight,
 #idle_inhibitor,
 #disk,
-#user,
-#mpris {
+#user {
 	padding-left: 8pt;
 	padding-right: 8pt;
 }
@@ -233,49 +252,49 @@
 }
 
 #custom-arrow1 {
-	font-size: 11pt;
+	font-size: 12pt;
 	color: @time;
 	background: @date;
 }
 
 #custom-arrow2 {
-	font-size: 11pt;
+	font-size: 12pt;
 	color: @date;
 	background: @layout;
 }
 
 #custom-arrow3 {
-	font-size: 11pt;
+	font-size: 12pt;
 	color: @layout;
 	background: @cpu;
 }
 
 #custom-arrow6 {
-	font-size: 11pt;
+	font-size: 12pt;
 	color: @cpu;
 	background: @memory;
 }
 
 #custom-arrow7 {
-	font-size: 11pt;
+	font-size: 12pt;
 	color: @memory;
 	background: @network;
 }
 
 #custom-arrow8 {
-	font-size: 11pt;
+	font-size: 12pt;
 	color: @network;
 	background: @sound;
 }
 
 #custom-arrow9 {
-	font-size: 11pt;
+	font-size: 12pt;
 	color: @sound;
-	background: transparent;
+	background: @bg;
 }
 
 #custom-arrow10 {
-	font-size: 11pt;
+	font-size: 12pt;
 	color: @unfocused;
 	background: transparent;
 }
