@@ -36,7 +36,7 @@
 @define-color cpu	@green;
 @define-color temp	@green;
 @define-color layout	@white;
-@define-color battery	@aqua;
+@define-color battery	@yellow;
 @define-color date	@bg;
 @define-color time	@yellow;
 
@@ -144,13 +144,9 @@
 }
 
 /* Each warning */
-#network.disconnected,
-#temperature.warning,
-#battery.warning.discharging {
+#network.disconnected {
 	color: @warning;
 }
-
-/* And now modules themselves in their respective order */
 
 /* Current sway mode (resize etc) */
 #mode {
@@ -228,7 +224,7 @@
 
 #battery {
 	background: @battery;
-	color: @white;
+	color: @black;
 }
 
 #tray {

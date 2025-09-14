@@ -51,16 +51,23 @@ set $right l
 input * {
 	xkb_layout "us,ru"
 	xkb_options "grp:alt_shift_toggle, caps:super"
-	xkb_numlock enable
-	accel_profile flat
-	pointer_accel -0.6
 }
 
 ### Settings for keyboard-mouse emulation
-input 12815:20565:Telink_CIDOO_V65_Mouse {
-	accel_profile adaptive
-	pointer_accel 1
-	dwt enable
+input "type:touchpad" {
+	dwt enabled
+	tap enabled
+	middle_emulation enabled
+	natural_scroll disabled
+	scroll_factor 0.3
+}
+
+input "type:mouse" {
+	dwt enabled
+	tap enabled
+	middle_emulation enabled
+	natural_scroll disabled
+	scroll_factor 0.3
 }
 
 font pango: dejavu sans mono 7
@@ -139,9 +146,6 @@ bindsym --to-code $mod+Alt+l exec swaylock -elf -c 000000
 	assign [app_id="librewolf"] workspace 2
 	assign [app_id="google-chrome"] workspace 4
 
-
-bindsym $mod+Alt+Escape output "HDMI-A-1" toggle ; output "eDP-1" toggleN
-
 #
 # Moving around:
 #
@@ -187,8 +191,8 @@ bindsym $mod+Alt+Escape output "HDMI-A-1" toggle ; output "eDP-1" toggleN
 # Media keys
 #
 
-	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +1%
-	bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -1%
+	bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +10%
+	bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -10%
 	bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 	bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 	bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
@@ -252,11 +256,6 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
-# Custom application
-#
-bindsym --to-code $mod+t exec Telegram
-
-#
 # Status Bar:
 #
 bar {
@@ -267,8 +266,9 @@ exec {
 	gsettings set org.gnome.desktop.interface gtk-theme "Qogir"
 	gsettings set org.gnome.desktop.interface icon-theme "Qogir"
 	mako --default-timeout 8000
+	python3 ~/Documents/searx/searx/webapp.py
 	python3 ~/.userscripts/noisy/noisy.py --config ~/.userscripts/noisy/config.json
+
 }
 
-	# python3 ~/Documents/searx/searx/webapp.py
 include /etc/sway/config.d/*
