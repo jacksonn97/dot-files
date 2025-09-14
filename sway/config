@@ -82,11 +82,8 @@ set $menu fuzzel -i
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # output * bg ~/.wallpapers/$(ls ~/.wallpapers/ | shuf -n 1) fill
-output * bg ~/.wallpapers/autumn_forest.png fill
-
-output HDMI-A-1 mode 1920x1080@74.973000Hz
 
 ### Key bindings
 #
