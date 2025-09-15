@@ -160,7 +160,7 @@
     },
 
     "battery": {
-        "interval": 15,
+        "interval": 180,
         "states": { "critical": 30 },
         "format-time": "{H}:{M:02}",
         "format": "{icon} {capacity}% ({time})",
