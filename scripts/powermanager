@@ -1,0 +1,20 @@
+#!/bin/bash
+if [[ $# = 0 ]]
+then
+    echo "Select action:"
+    echo -e "sd -\033[31m poweroff\033[0m"
+    echo -e "1 -\033[33m reboot\033[0m"
+    echo -e "2 -\033[34m sleep\033[0m"
+    echo -e "3 -\033[32m logout\033[0m"
+    echo -e -n "-> \033[0m"
+    read action
+else
+    action=$1
+fi
+case $action in
+    sd) poweroff ;;
+    1) reboot ;;
+    2) zzz ;;
+    3) swaymsg exit ;;
+esac
+

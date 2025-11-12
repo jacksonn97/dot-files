@@ -94,14 +94,11 @@ output HDMI-A-1 mode 1920x1080@74.973000Hz
 # Start your launcher
 	bindsym --to-code $mod+d exec $menu
 
-	# https://gist.github.com/jacksonn97/007412a509e9864d106206819e844d14
-	bindsym --to-code Print exec .userscripts/screenshot
+	bindsym --to-code Print exec ~/.config/scripts/screenshot
 
-	# https://gist.github.com/jacksonn97/2acd8c9dbfde204df9ba477122f371b4
-	bindsym --to-code $mod+i exec ~/.userscripts/vim-anywhere
+	bindsym --to-code $mod+i exec ~/.config/scripts/vim-anywhere
 
-	# https://gist.github.com/jacksonn97/1e759b8d197dac21c6a2624e9db2847e
-	bindsym --to-code $mod+Shift+e exec kitty -o confirm_os_window_close=0 -e ~/.userscripts/powermanager
+	bindsym --to-code $mod+Shift+e exec kitty -o confirm_os_window_close=0 -e ~/.config/scripts/powermanager
 
 	floating_modifier $mod normal
 

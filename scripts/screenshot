@@ -1,0 +1,6 @@
+#!/bin/sh
+
+NOW=$(date +%Y.%m.%d-%H:%M)
+
+grim ~/Images/screenshots/screenshot-$NOW.jpg | wl-copy
+wl-copy < ~/Images/screenshots/screenshot-$NOW.jpg

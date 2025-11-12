@@ -217,7 +217,7 @@
 		"on-click": "playerctl play-pause",
 		"on-scroll-up": "playerctl previous",
 		"on-scroll-down": "playerctl next",
-		"exec":  "python3 ~/.userscripts/mediaplayer.py"
+		"exec":  "python3 ~/.config/scripts/mediaplayer.py"
 	}
 }
 
