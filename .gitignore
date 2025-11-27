@@ -2,11 +2,8 @@
 /*
 *.bak
 
-!/kitty
-!/sway
-!/waybar
 !/fuzzel
-!/ranger
+!/foot
 !/.zshrc
 !/nvim
 !/scripts
