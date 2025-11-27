@@ -2,7 +2,7 @@
 # see /usr/share/doc/zsh/examples/zshrc for examples
 
 export MOZ_ENABLE_WAYLAND=1
-export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORM="wayland"
 export EDITOR=nvim
 export $(dbus-launch)
 
@@ -36,6 +36,7 @@ bindkey '^[[F' end-of-line                        # end
 bindkey '^[[Z' undo                               # shift + tab undo last action
 
 # enable completion features
+fpath+=~/.zfunc
 autoload -Uz compinit vcs_info colors && colors
 compinit -d ~/.cache/zcompdump
 zstyle ':completion:*:*:*:*:*' menu select
